@@ -321,7 +321,7 @@ client.on('message', message => {
         .addField('1play', 'لتشغيل اغنية')
         .addField('1join', 'دخول رومك الصوتي')
         .addField('1stop', 'الخروج من رومك الصوتي')
-        .addField('skip', 'تخطي الأغنية')
+        .addField('1skip', 'تخطي الأغنية')
         .addField('1pause', 'ايقاف الاغنية مؤقتا')
         .addField('1resume', 'تكملة الاغنية')
         .addField('1queue', 'اظهار قائمة التشغيل')
