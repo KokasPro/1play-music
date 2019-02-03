@@ -316,17 +316,16 @@ function play(guild, song) {
 client.on('message', message => {
     if (message.content === '1help') {
         let helpEmbed = new Discord.RichEmbed()
-        .setTitle('**أوامر الميوزك...**')
-        .setDescription('**برفكس البوت (,1,) صانع البوت هو KokasPro#5250**')
-        .addField('1play', 'لتشغيل اغنية')
-        .addField('1join', 'دخول رومك الصوتي')
-        .addField('1stop', 'الخروج من رومك الصوتي')
-        .addField('1skip', 'تخطي الأغنية')
-        .addField('1pause', 'ايقاف الاغنية مؤقتا')
-        .addField('1resume', 'تكملة الاغنية')
-        .addField('1queue', 'اظهار قائمة التشغيل')
-        .addField('1np', 'اظهار الاغنية اللي انت مشغلها حاليا')
-        .setFooter('(general_commands) لاظهار الاوامر العامة')
+        .setTitle('**The bot commands**')
+        .setDescription('**prefix is "1" Bot Maker is KokasPro#5250**')
+        .addField('1play', 'to play any song')
+        .addField('1stop', 'to stop the song')
+        .addField('1skip', 'to skip the song')
+        .addField('1pause', 'to pause the song')
+        .addField('1resume', 'to resume the song')
+        .addField('1queue', 'to see the queue')
+        .addField('1np', 'to see the the song that is working now')
+        .setFooter('(general_commands) to see the general commands')
       message.channel.send(helpEmbed);
     }
 });
@@ -334,11 +333,10 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === 'general_commands') {
         let helpEmbed = new Discord.RichEmbed()
-        .setTitle('**أوامر عامة...**')
-        .addField('avatar', "افاتار الشخص المطلوب")
-        .addField('gif', 'البحث عن جيف انت تطلبه')
-        .addField('ping', 'معرفة ping البوت')
-        .setFooter('المزيد قريبا ان شاء الله!')
+        .setTitle('**general commands**')
+        .addField('avatar', "to get the pfp of someone")
+        .addField('ping', 'to see the ping of the bot')
+        .setFooter('Contact the owner : KokasPro#5250')
       message.channel.send(helpEmbed);
     }
 });
