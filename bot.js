@@ -163,7 +163,7 @@ client.on('message', async msg => {
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('لم يتم اختيار الاغنية');
+						return msg.channel.send('You did not choose any song');
                     }
                     
 					const videoIndex = parseInt(response.first().content);
@@ -182,26 +182,26 @@ client.on('message', async msg => {
         
 	} else if (command === `skip`) {
 
-		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
-        if (!serverQueue) return msg.channel.send("ليست هناك اغاني ليتم التخطي");
+		if (!msg.member.voiceChannel) return msg.channel.send("You have to be in a music channel");
+        if (!serverQueue) return msg.channel.send("There is not any song to skip");
 
-		serverQueue.connection.dispatcher.end('تم تخطي الاغنية');
+		serverQueue.connection.dispatcher.end('Skipped the song successfully');
         return undefined;
         
 	} else if (command === `stop`) {
 
-		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
+		if (!msg.member.voiceChannel) return msg.channel.send("You have to be in a music channel");
         if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
         
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('تم ايقاف الاغنية لقد خرجت من الروم الصوتي');
+		serverQueue.connection.dispatcher.end('The song stopped because you just left the channel');
         return undefined;
         
 	} else if (command === `vol`) {
 
-		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
-		if (!serverQueue) return msg.channel.send('يعمل الامر فقط عند تشغيل مقطع صوتي');
-        if (!args[1]) return msg.channel.send(`لقد تم تغير درجة الصوت الى**${serverQueue.volume}**`);
+		if (!msg.member.voiceChannel) return msg.channel.send("You have to be in a music channel");
+		if (!serverQueue) return msg.channel.send('The command works only for songs');
+        if (!args[1]) return msg.channel.send(`The volume has changed to**${serverQueue.volume}**`);
         
 		serverQueue.volume = args[1];
         serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 50);
@@ -231,15 +231,15 @@ client.on('message', async msg => {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('تم الايقاف');
+			return msg.channel.send('Stopped');
 		}
-		return msg.channel.send('في انتظار تشغيل المقطع');
+		return msg.channel.send('waiting for playing song');
 	} else if (command === "resume") {
 
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
-            return msg.channel.send('تم التشغيل');
+            return msg.channel.send('Done working!');
             
 		}
 		return msg.channel.send('Queue is empty!');
@@ -284,7 +284,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send(`**${song.title}**, تمت اضافة المقطع الى قائمة الانتظار `);
+		else return msg.channel.send(`**${song.title}**, The song has been added to queue list `);
 	} 
 	return undefined;
 }
