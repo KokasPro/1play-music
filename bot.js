@@ -317,15 +317,15 @@ client.on('message', message => {
     if (message.content === '1help') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
-        .setDescription('**برفكس البوت (,1,)**')
-        .addField('play', 'لتشغيل اغنية')
-        .addField('join', 'دخول رومك الصوتي')
-        .addField('disconnect', 'الخروج من رومك الصوتي')
+        .setDescription('**برفكس البوت (,1,) صانع البوت هو KokasPro#5250**')
+        .addField('1play', 'لتشغيل اغنية')
+        .addField('1join', 'دخول رومك الصوتي')
+        .addField('1stop', 'الخروج من رومك الصوتي')
         .addField('skip', 'تخطي الأغنية')
-        .addField('pause', 'ايقاف الاغنية مؤقتا')
-        .addField('resume', 'تكملة الاغنية')
-        .addField('queue', 'اظهار قائمة التشغيل')
-        .addField('np', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .addField('1pause', 'ايقاف الاغنية مؤقتا')
+        .addField('1resume', 'تكملة الاغنية')
+        .addField('1queue', 'اظهار قائمة التشغيل')
+        .addField('1np', 'اظهار الاغنية اللي انت مشغلها حاليا')
         .setFooter('(general_commands) لاظهار الاوامر العامة')
       message.channel.send(helpEmbed);
     }
